@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery-3.4.1.min.js"> </script> 
+	<script src="dom-to-image.min.js"> </script>
+	<style>
+		input{
+			appearance:none;
+			-webkit-appearance:none;
+			-moz-appearance: none;
+			border: 1px solid black;
+			vertical-align:bottom;
+			padding:0;
+			width:10px;
+			height:10px;
+			position:relative;
+			
+		}
+		input:checked:after{
+			content:'\2714';
+			font-size:7pt;
+			position:absolute;
+			font-weight:bold;
+		}
+		
+	</style>
+</head>
+<body style="font-family:arial; font-size:12pt;">
+<div id="container" style="border: 1px solid black; width:740px; height: 500px; padding:10px;position:relative;visibility:hidden;">
+	<div style="text-align:center;width:100%;"><!--header-->
+		<br>
+		PHILIPPINE SCIENCE HIGH SCHOOL SYSTEM<br>
+		CAMPUS: SOCCSKSARGEN<br><br>
+		CLINIC ADMISSION SLIP
+	</div><!--First form-->
+	<div style="font-size:8pt;"><br> <!--Second Form-->
+		<div style="width: 100%;">Date: <span id="date" style="border-bottom: 1px solid black; display: inline-block; width: 200px;">December 2, 2020 </span> </div><br>
+		<div style="width: 100%;">
+			<span> Student: </span><span id="name" style="border-bottom: 1px solid black; display: inline-block; width: 400px;"> Dela Cuadra, Kenneth T.</span>
+			<form style="float:right;"> 
+				<input style="width:12px; height:12px;" id="male" type="checkbox"checked disabled/> M
+				<input style="width:12px; height:12px;" id="female" type="checkbox" disabled/> F ______________________________
+			</form>
+		</div>
+		<div style="width:100%;"><span style="margin-left: 70px;">LAST</span> <span style="margin-left:120px;">FIRST</span> <span style="margin-left: 80px;">M.I</span></div>
+		
+		<div style="width: 100%; border-bottom: 1px dotted black; padding-bottom: 10px;">
+			<span> Grade & Section: </span><span id="grade_and_section" style="border-bottom: 1px solid black; display: inline-block; width: 300px;"> 12 - Block F</span>
+			<span style="float:right"> Time Out: <span id="timeout" style="border-bottom: 1px solid black; display: inline-block; width: 70px;"> 12:00</span>AM/PM</span>
+			<span style="float:right; margin-right:20px;"> Time In: <span id="timein" style="border-bottom: 1px solid black; display: inline-block; width: 70px;"> 8:00</span>AM/PM</span>
+		</div>
+	</div><br>
+	
+	<div style="font-size:8pt; border: 1px solid black; height: 230px;" ><!--Third form-->
+		<div style="width:24%; float:left;height:100%; border-right:1px solid black; padding-left:5px;"> 
+			<b>Nature of Complaint:</b>
+			<form>
+				<input type="checkbox" id="NoC0" checked disabled/> Not Feeling Well <br>
+				<input type="checkbox" id="NoC1" checked disabled/> Stomachache <br>
+				<input type="checkbox" id="NoC2" checked disabled/> Headache <br>
+				<input type="checkbox" id="NoC3" checked disabled/> Tootache <br>
+				<input type="checkbox" id="NoC4" checked disabled/> Injury <span id="NoC6" style="display:inline-block;border-bottom: 1px solid black;height:12px;width: 115px;overflow:hidden;font-size:7pt;">Injured piece of hair</span><br>
+				<input type="checkbox" id="NoC5" checked disabled/> Other 
+				<span style="display:inline-block;border-bottom: 1px solid black; width: 115px;overflow:hidden;font-size:7pt;"></span>
+				<span style="display:inline-block;border-bottom: 1px solid black; width: 115px;overflow:hidden;font-size:7pt;margin-left:50px"></span>
+				<div id="NoC7" style="overflow-wrap:break-word;font-style:italic;overflow:hidden;width:155px;margin-left:5px; height:95px; padding:3px;line-height: 15px;font-size:7pt;margin-top:3px;"></div>
+			</form>
+		</div>
+		
+		<div style="width:37%; float:left;height:100%; border-right:1px solid black;padding-left:5px;">
+			<b>Action Taken:</b>
+			<form>
+				<input type="checkbox" id="AT0" checked disabled/> Student laid/sat in the clinic for 20 minutes or less <br>
+				<input type="checkbox" id="AT1" checked disabled/> Student laid/sat in the clinic for 20 minutes or more <br>
+				<input type="checkbox" id="AT2" checked disabled/> Temperature taken <br>
+				<input type="checkbox" id="AT3" checked disabled/> Ice pack applied to affected area <br>
+				<input type="checkbox" id="AT4" checked disabled/> Affected area cleaned <br>
+				<input type="checkbox" id="AT5" checked disabled/> Band aid applied to affected area <br>
+				<input type="checkbox" id="AT6" checked disabled/> Head checked for: <span id="AT7" style="font-size:7pt;display:inline-block;border-bottom:1px solid black;height:10px; width:150px;overflow:hidden;">30 minutes? </span><br>
+				<input type="checkbox" id="AT8" checked disabled/> Parent/Guardian Notified <span id="AT9" style="display:inline-block;border-bottom:1px solid black;height:11px; width:30px;overflow:hidden;">yes</span> at <span id="AT10" style="display:inline-block;border-bottom:1px solid black;height:11px; width:30px;overflow:hidden;">3:00</span>AM/PM <br>
+				<input type="checkbox" id="AT11" checked disabled/> Medication Given <br>
+				<input type="checkbox" id="AT12" checked disabled/> Other:<span style="font-size:7pt;display:inline-block;border-bottom:1px solid black; width:210px;overflow:hidden;"></span>
+				<div id="AT13" style="overflow-wrap:break-word;font-style:italic;overflow:hidden;width:260px; height:40px; padding:3px;line-height: 15px;font-size:7pt;margin-right:10px;margin-top:5px;"></div>
+			</form>
+		</div>
+		<div style="width:35%; float:left; height:100%;padding-left:5px;">
+			<b>Disposition of Student:</b>
+			<form>
+				<input type="checkbox" id="DoS0" checked disabled/> Returned to class, feeling better <br>
+				<input type="checkbox" id="DoS1" checked disabled/> Returned to class at parent's/guardian's request <br>
+				<input type="checkbox" id="DoS2" checked disabled/> Returned to class, unable to contact parent/guardian <br>
+				<input type="checkbox" id="DoS3" checked disabled/> Sent home <br>
+				<input type="checkbox" id="DoS4" checked disabled/> Teacher notified <br>
+				<input type="checkbox" id="DoS5" checked disabled/> Referral was made to Health Care Provider <br>
+				<input type="checkbox" id="DoS6"checked disabled/> Transported to Hospital <br>
+				<input type="checkbox" id="DoS7" checked disabled/> Copy of clinic pass sent home <br>
+				<input type="checkbox" id="DoS8" checked disabled/> Other <span style="display:inline-block;border-bottom:1px solid black; width:200px;"></span><br>
+				Remarks: <span style="display:inline-block;border-bottom:1px solid black; width:200px"></span>
+				<div id="DoS9" style="overflow-wrap:break-word;font-style:italic;overflow:hidden;width:250px; height:28px; padding:3px;line-height: 15px;font-size:7pt;margin-right:10px;margin-top:5px;"></div>
+			</form>
+		</div>
+	</div>
+	<div style="width:100%; font-size:11px;"><br>
+		<div style="float:left; margin-top: 10px;">Handled By:</div> 
+		<div style="text-align: center;float:left; margin-top: 10px;margin-left:10px;">
+			<span id="schoolnurse" style="display:inline-block;border-bottom:1px solid black; width:200px"></span><br>
+				School Nurse
+		</div>
+	</div>
+	<div style="border-top: 1px solid black; bottom:0; position: absolute; width:100%; font-size:10pt;left:0;padding:2px;"><!--Last Form-->
+		<b>PSHS-00-F-HSU-04-Ver02-Rev0-02/01/20</b>
+	</div>
+</div>
+	
+	<script> 
+	function downloadAll(files){
+		if(files.length == 0) return;
+		file = files.pop();
+		var theAnchor = $('<a />')
+			.attr('href', file[1])
+			.attr('download',file[0])
+			.appendTo('body');
+		
+		theAnchor[0].click(); 
+		theAnchor.remove();
+		downloadAll(files);
+	}
+	function AdmissionSlip(Date,Name,Sex,GradeAndSection,TimeIn,TimeOut,NatureOfComplaint,ActionTaken,DispositionOfStudent,SchoolNurse){
+	//Date,Name,Sex,GradeAndSection,TimeIn,TimeOut === String
+	//NatureOfComplaint = Array of [bool,bool,bool,bool,bool,bool,string,string]; first string being the injury description and second string being the other
+	//ActionTaken = Array of [bool,bool,bool,bool,bool,bool,bool,string,bool,string,string,bool,bool,string]; first string being head checked for, second and third string being parent/guardian notified, and fourth string for other
+	//DispositionOfStudent = Array of [bool,bool,bool,bool,bool,bool,bool,bool,bool,string]; the string being others
+		document.getElementById("name").innerHTML=Name;
+		document.getElementById("date").innerHTML=Date;
+		if(Sex=="male"||Sex=="Male"||Sex=="MALE"){ 
+			document.getElementById("male").checked=true;
+			document.getElementById("female").checked=false;
+		}
+		else{
+			document.getElementById("female").checked=true;
+			document.getElementById("male").checked=false;
+		}
+		document.getElementById("grade_and_section").innerHTML=GradeAndSection;
+		document.getElementById("timein").innerHTML=TimeIn;
+		document.getElementById("timeout").innerHTML=TimeOut;
+		//Nature Of Complaint
+			document.getElementById("NoC0").checked=NatureOfComplaint[0];
+			document.getElementById("NoC1").checked=NatureOfComplaint[1];
+			document.getElementById("NoC2").checked=NatureOfComplaint[2];
+			document.getElementById("NoC3").checked=NatureOfComplaint[3];
+			document.getElementById("NoC4").checked=NatureOfComplaint[4];
+			document.getElementById("NoC5").checked=NatureOfComplaint[5];
+			document.getElementById("NoC6").innerHTML=NatureOfComplaint[6];
+			document.getElementById("NoC7").innerHTML=NatureOfComplaint[7];
+		//
+		//Action Taken
+			document.getElementById("AT0").checked=ActionTaken[0];
+			document.getElementById("AT1").checked=ActionTaken[1];
+			document.getElementById("AT2").checked=ActionTaken[2];
+			document.getElementById("AT3").checked=ActionTaken[3];
+			document.getElementById("AT4").checked=ActionTaken[4];
+			document.getElementById("AT5").checked=ActionTaken[5];
+			document.getElementById("AT6").checked=ActionTaken[6];
+			document.getElementById("AT7").innerHTML=ActionTaken[7];
+			document.getElementById("AT8").checked=ActionTaken[8];
+			document.getElementById("AT9").innerHTML=ActionTaken[9];
+			document.getElementById("AT10").innerHTML=ActionTaken[10];
+			document.getElementById("AT11").checked=ActionTaken[11];
+			document.getElementById("AT12").checked=ActionTaken[12];
+			document.getElementById("AT13").innerHTML=ActionTaken[13];
+		//
+		//Disposition Of Students
+			document.getElementById("DoS0").checked=DispositionOfStudent[0];
+			document.getElementById("DoS1").checked=DispositionOfStudent[1];
+			document.getElementById("DoS2").checked=DispositionOfStudent[2];
+			document.getElementById("DoS3").checked=DispositionOfStudent[3];
+			document.getElementById("DoS4").checked=DispositionOfStudent[4];
+			document.getElementById("DoS5").checked=DispositionOfStudent[5];
+			document.getElementById("DoS6").checked=DispositionOfStudent[6];
+			document.getElementById("DoS7").checked=DispositionOfStudent[7];
+			document.getElementById("DoS8").checked=DispositionOfStudent[8];
+			document.getElementById("DoS9").innerHTML=DispositionOfStudent[9];
+		//
+		document.getElementById("schoolnurse").innerHTML=SchoolNurse;
+		
+		//Download part
+		var node = document.getElementById("container");
+		var downloadArray = new Array();
+		
+		domtoimage.toPng(node).then(function (dataUrl){
+			var img = new Image();
+			img.src = dataUrl;
+			
+			downloadArray.push([Date+'_'+Name+".png",dataUrl]);
+			
+			var htmlString = '<html xmlns:"http://www.w3.org/TR/REC-html40" xmlns:office="urn:schemas-microsoft-com:office:office" xmlns:word="urn:schemas-microsoft-com:office:word"><head> <xml><word:WordDocument><word:View>Print</word:View><word:Zoom>90</word:Zoom><word:DoNotOptimizeForBrowser/></word:WordDocument></xml><style>@page{size:21cm 29.7cm; mso-page-orientation:landscape;}</style></head><body style="font-family:times new roman; font-size:12pt;">'+'<img src="'+Date+Name+'.png" width="800" height="500"/>'+'</body></html>';
+		
+			var dataUri = 'data:text/html,'+ encodeURIComponent(htmlString);
+			downloadArray.push([Date+'_'+Name+'.doc', dataUri]);
+			downloadAll(downloadArray);
+		}).catch(function(error){
+			console.error('lul, u nub. dunno how to solve ',error)
+		});
+		
+	}
+	
+	AdmissionSlip("March 30, 2020","Eiii","female","10-Neutron","7:00","10:00",[true,true,true,true,true,false,"Broken Hairstrand","Dunno"],[true,true,true,true,true,true,true,"1 hour",true,"yes","2:00",true,false,"Given illegal drugs"],[true,true,true,true,true,true,true,true,false,"Feeling lonely"]);
+	/////////////////////////////////////////////////////////////////
+	</script> 
+</body>
+</html>
